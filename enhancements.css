@@ -1,0 +1,298 @@
+
+/* Modal Dialog Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Floating Action Button (FAB) Styles */
+.fab {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  background: var(--accent-color);
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 900;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  background: var(--primary-color);
+}
+
+.fab-menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-menu button {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.fab-menu button:hover {
+  background: var(--accent-color);
+}
+
+/* Toast Notification Styles */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  z-index: 1500;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Breathing Exercise Styles (Fitted to 300px Sidebar) */
+.breathing-exercise {
+  margin: 20px 20px; /* Reduced horizontal margins to 20px each */
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 135, 135, 0.6));
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+  border: 3px solid var(--breathing-outline);
+  position: relative;
+  overflow: hidden;
+  animation: pulseBackground 10s infinite ease-in-out;
+  width: 220px; /* Reduced to fit within 300px */
+}
+
+.breathing-exercise:hover {
+  transform: scale(1.05) translateX(5px);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+}
+
+@keyframes pulseBackground {
+  0%, 100% { background: linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 135, 135, 0.6)); }
+  50% { background: linear-gradient(135deg, rgba(255, 107, 107, 0.6), rgba(255, 135, 135, 0.8)); }
+}
+
+.breathing-exercise::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.breathing-exercise:active::before {
+  opacity: 1;
+  animation: ripple 0.5s ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.breathing-exercise.expanded {
+  height: auto;
+  max-height: 250px; /* Reduced to fit better */
+  overflow: hidden;
+  padding-bottom: 25px;
+}
+
+.breathing-exercise h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.breathing-icon {
+  font-size: 20px;
+  color: var(--white);
+  animation: breatheIcon 8s infinite paused;
+}
+
+.breathing-exercise.expanded .breathing-icon {
+  animation-play-state: running;
+}
+
+@keyframes breatheIcon {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1); }
+}
+
+.breathing-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--white) 40%, rgba(255, 255, 255, 0.7) 100%);
+  margin: 0 auto 15px;
+  transition: var(--transition);
+  animation: breathe 8s infinite paused;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.breathing-exercise.expanded .breathing-circle {
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1.2); }
+  75% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+.breathing-instructions {
+  display: none;
+  margin: 10px 0;
+  color: var(--white);
+  font-size: 15px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+   align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+}
+
+.breathing-exercise.expanded .breathing-instructions {
+  display: block;
+}
+
+.breathing-control {
+  display: none;
+  padding: 8px 16px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+  margin: 0 auto; /* Centers the button horizontally */
+}
+.breathing-exercise.expanded .breathing-control {
+  display: block;
+}
+
+.breathing-control:hover {
+  background: var(--accent-color);
+  box-shadow: 0 6px 15px rgba(255, 107, 107, 0.5);
+}
+
+/* Dynamic Outlines with Animation */
+:root {
+  --breathing-outline: rgba(255, 255, 255, 0.8); /* Light mode */
+}
+
+[data-theme="dark"] {
+  --breathing-outline: rgba(255, 150, 150, 0.8); /* Dark mode */
+}
+
+.breathing-exercise {
+  animation: glowOutline 2s infinite ease-in-out;
+}
+
+@keyframes glowOutline {
+  0%, 100% { border-color: var(--breathing-outline); box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3); }
+  50% { border-color: var(--breathing-outline-glow, rgba(255, 255, 255, 1)); box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5); }
+}
+
+[data-theme="light"] {
+  --breathing-outline-glow: rgba(255, 255, 255, 1);
+}
+
+[data-theme="dark"] {
+  --breathing-outline-glow: rgba(50, 50, 50, 1); /* Dark gray for glow */
+}
+
+[data-theme="dark"] .breathing-exercise {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.8), rgba(255, 135, 135, 0.6));
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+[data-theme="dark"] .breathing-circle {
+  background: radial-gradient(circle, var(--white) 40%, rgba(255, 255, 255, 0.7) 100%);
+}
+
+[data-theme="dark"] .breathing-control {
+  background: var(--primary-color);
+}
+
+[data-theme="dark"] .breathing-control:hover {
+  background: var(--accent-color);
+}
+
+
+

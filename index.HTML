@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Resource Hub - Enhanced</title>
+  <link rel="stylesheet" href="styles1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<div id="theme-toggle">
+  <i class="fas fa-moon"></i>
+</div>
+<link rel="stylesheet" href="enhancements.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+  <!-- Floating Navigation Sidebar -->
+  <aside id="nav-sidebar">
+    <div class="logo">Crisis Hub</div>
+<ul>
+  <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+  <li><a href="#resources"><i class="fas fa-list"></i> Resources</a></li>
+  <li><a href="#map"><i class="fas fa-map"></i> Map</a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  <li>
+    <div class="breathing-exercise">
+      <i class="fas fa-lungs breathing-icon"></i>
+      <h3>Stay Calm</h3>
+      <div class="breathing-circle"></div>
+      <p class="breathing-instructions">Inhale 4s, Hold 4s, Exhale 4s</p>
+      <button type="button" class="breathing-control">Start</button>
+    </div>
+  </li>
+</ul>
+</div>
+  </aside>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1> SETU CRISIS HUB</h1>
+      <p>Your one-stop hub for crisis resources and support.</p>
+      <a href="#resources" class="btn pulse">Explore Resources</a>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="resources">
+    <h2>Resources</h2>
+    <div class="resource-grid">
+      <div class="resource-card">
+        <img src="https://img.freepik.com/premium-photo/natural-disasters-influence-policy-making_1170794-465742.jpg" alt="Natural Disasters">
+        <h3>Natural Disasters</h3>
+        <p>Find help during hurricanes, earthquakes, and more.</p>
+        <div id="natural-disasters-checklist" class="checklist">
+          <ul>
+            <li><input type="checkbox"> Create an emergency kit.</li>
+            <li><input type="checkbox"> Identify safe evacuation routes.</li>
+            <li><input type="checkbox"> Stay updated with local news.</li>
+            <li><input type="checkbox"> Contact local disaster relief services.</li>
+          </ul>
+        </div>
+        <a href="https://www.redcross.org" target="_blank" class="btn">Learn More</a>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://media.istockphoto.com/id/817617454/photo/chalk-head-with-dreams-and-reality-post-it-notes.jpg?s=612x612&w=0&k=20&c=VuEVM9_TszJ2rfy1mHcXLTmS39pit26Gu6_JYlQoQZg=" alt="Mental Health">
+        <h3>Mental Health</h3>
+        <p>Access hotlines, therapy, and support groups.</p>
+        <div id="mental-health-checklist" class="checklist">
+          <ul>
+            <li><input type="checkbox"> Call a mental health hotline.</li>
+            <li><input type="checkbox"> Practice mindfulness exercises.</li>
+            <li><input type="checkbox"> Reach out to a trusted friend or family member.</li>
+            <li><input type="checkbox"> Schedule an appointment with a therapist.</li>
+          </ul>
+        </div>
+        <a href="https://www.samhsa.gov" target="_blank" class="btn">Learn More</a>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://media.istockphoto.com/id/138091684/photo/shadow-of-a-person-in-the-corner-hiding-from-abuse.jpg?s=2048x2048&w=is&k=20&c=j7JZSDe1boIxz4sVX_fUrcE564yRQlGQZw8aY5Te6BQ=" alt="Domestic Violence">
+        <h3>Domestic Violence</h3>
+        <p>Get help and find safe shelters.</p>
+        <div id="domestic-violence-checklist" class="checklist">
+          <ul>
+            <li><input type="checkbox"> Contact a domestic violence hotline.</li>
+            <li><input type="checkbox"> Create a safety plan.</li>
+            <li><input type="checkbox"> Locate nearby shelters.</li>
+            <li><input type="checkbox"> Seek legal assistance if needed.</li>
+          </ul>
+        </div>
+        <a href="https://www.thehotline.org" target="_blank" class="btn">Learn More</a>
+      </div>
+
+      <div class="resource-card">
+        <img src="https://media.istockphoto.com/id/1540755923/photo/refugee-tents.jpg?s=612x612&w=0&k=20&c=YeQpsptaekAQR1FgB6SVCA-7k2wxyKnavh6dmdT1ZnI=" alt="Homelessness">
+        <h3>Homelessness</h3>
+        <p>Locate shelters, food banks, and job assistance.</p>
+        <div id="homelessness-checklist" class="checklist">
+          <ul>
+            <li><input type="checkbox"> Find a nearby shelter.</li>
+            <li><input type="checkbox"> Visit a local food bank.</li>
+            <li><input type="checkbox"> Apply for job assistance programs.</li>
+            <li><input type="checkbox"> Seek medical assistance if needed.</li>
+          </ul>
+        </div>
+        <a href="https://www.endhomelessness.org" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+ <!-- OpenStreetMap Section -->
+  <section id="map" class="map-section">
+    <h2>Find Help Near You</h2>
+    <div class="search-container">
+      <input type="text" id="location-input" placeholder="Enter your location (e.g., city, zip code)">
+      <button id="search-button" class="btn">Search</button>
+    </div>
+    <div id="map-container" class="map-container"></div>
+    <section id="resource-list" class="resource-list">
+      <h3>Nearby Resources</h3>
+      <div id="resource-items" class="resource-grid"></div>
+    </section>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Chatbot Icon -->
+  <div id="chatbot-icon">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+<span id="chatbot-label">Helpline Bot</span>
+  <!-- Chatbot Container -->
+  <div id="chatbot" class="chatbot-container">
+    <div id="chatbot-header">
+      Crisis Help Chatbot
+      <i id="chatbot-close" class="fas fa-times"></i>
+    </div>
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+<div id="chatbot-options" class="chatbot-options"></div>
+<input type="text" id="chatbot-input" placeholder="Type your message...">
+<button id="chatbot-send" class="btn">Send</button>
+    </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ for a better world. | © 2025 Crisis Hub</p>
+  </footer>
+
+
+<link rel="stylesheet" href="enhancements.css">
+<script src="enhancements.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker registered'))
+      .catch((error) => console.error('Service Worker registration failed:', error));
+  }
+</script>
+<script src="script1.js"></script>
+  <link rel="stylesheet" href="enhancements.css">
+  <script src="enhancements.js"></script>
+   
+
+ </body>
+</html>
